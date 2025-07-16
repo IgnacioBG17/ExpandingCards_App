@@ -1,62 +1,71 @@
+/* Importamos la fuente 'Nuli' desde google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
+/* Aplica box-sizing border box a todos los elementos para incluir padding y border en el ancho y alto*/
 *{
     box-sizing: border-box;
 }
 
+/* Estilos generales para el body */
 body {
-    font-family: 'Muli' sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
+    font-family: 'Muli' sans-serif; /* Fuente principal */ 
+    display: flex; /* Usa Flexbox para centrar el contenido */ 
+    align-items: center; /* Centra verticalmente */ 
+    justify-content: center; /* Centra orizontalmente */ 
+    height: 100vh; /* Altura igual a la ventana */ 
+    overflow: hidden; /* Oculta sscroll si hay overflow */ 
+    margin: 0; /* Quita el margen por defecto */ 
 }
 
+/* Contenedor principal que alberga los paneles */ 
 .container {
-    display: flex;
-    width: 90vw;
-}
+    display: flex; /* Flexbox para alinear paneles en fila */ 
+    width: 90vw; /* Ancho relativo al 90% del viewport */ 
+} 
 
+/* Estilos generales para cada panel */ 
 .panel {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    flex: 0.5;
-    margin: 10px;
-    position: relative;
-    transition: flex 0.7s ease-in;
+    background-size: cover; /* La imagen de fondo cubre todo el panel */  
+    background-position: center; /* Centra la imagen de fondo */ 
+    background-repeat: no-repeat; /* No repite la imgen de fondo */ 
+    height: 80vh; /* Altura relativa a la ventana */ 
+    border-radius: 50px; /* Border redondeados */ 
+    color: #fff; /* Color del texto blanco */ 
+    cursor: pointer; /* Cambia cursor al pasar por encima */   
+    flex: 0.5; /* Tamaño flexible inicial pequeño */ 
+    margin: 10px; /* Separacion entre paneles */ 
+    position: relative; /* Posicionamiento para el titulo absoluto */ 
+    transition: flex 0.7s ease-in; /* Transicion suave al cambiar tamaño flex */ 
 }
 
+/* Estilos para el titulo h3 dentro de cada panel */
 .panel h3 {
-    font-size: 24px;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    margin: 0;
-    opacity: 0;
+    font-size: 24px; /* Tamaño de fuente */ 
+    position: absolute; /* Posicion absoluta dentro del panel */ 
+    bottom: 20px; /* Separacion desde abajo */ 
+    left: 20px; /* Separacion desde la izquierda */ 
+    margin: 0; /* sin margen */ 
+    opacity: 0; /* Inicialmente invisible */ 
 }
 
+/* Cuando el panel tiene la clase active */
 .panel.active {
-    flex: 5;
+    flex: 5; /* Se expande mucho mas que los demas */ 
 }
 
+/* Titulo visible solo cuando el panel esta activo */
 .panel.active h3 {
-    opacity: 1;
-    transition: opacity 0.3s ease-in 0.4s;
+    opacity: 1; /* Se vuelve visible */ 
+    transition: opacity 0.3s ease-in 0.4s; /* Transicion suave con retraso */ 
 }
 
-
+/* Estilos responsivos para pantallas pequeñas (menos de 480px) */
 @media(max-width: 480px){
     .container {
-        width: 100vw;
+        width: 100vw; /* Ancho completo del viewport */
     }
 
+    /* Oculta los paneles 4 y 5 en dispositivos pequeños para mejor visualizacion */
     .panel:nth-of-type(4),
     .panel:nth-of-type(5) {
         display: none;
